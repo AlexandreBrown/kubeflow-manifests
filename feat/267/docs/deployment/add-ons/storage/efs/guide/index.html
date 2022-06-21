@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/docs\/deployment\/add-ons\/storage\/efs\/guide\/",
-      "wordCount" : "2636",
+      "wordCount" : "2640",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -54,7 +54,7 @@
 <meta itemprop="name" content="EFS">
 <meta itemprop="description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS">
 <meta itemprop="dateModified" content="2022-06-21T16:46:45-04:00" />
-<meta itemprop="wordCount" content="2636">
+<meta itemprop="wordCount" content="2640">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="EFS"/>
 <meta name="twitter:description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS"/>
@@ -563,16 +563,16 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 </span></span></code></pre></div><p>Note: As mentioned, make sure to change your default storage class only after you have completed your Kubeflow deployment. The default Kubeflow components may not work well with a different storage class.</p>
 <h3 id="33-note-about-permissions">3.3 Note about permissions</h3>
 <p>This step may not be necessary but you might need to specify some additional directory permissions on your worker node before you can use these as mount points. By default, new Amazon EFS file systems are owned by root:root, and only the root user (UID 0) has read-write-execute permissions. If your containers are not running as root, you must change the Amazon EFS file system permissions to allow other users to modify the file system. The set-permission-job.yaml is an example of how you could set these permissions to be able to use the efs as your workspace in your kubeflow notebook. Modify it accordingly if you run into similar permission issues with any other job pod.</p>
-<h4 id="note">Note</h4>
-<p>The automated setup sets the default notebook user (Jovyan) as owner by default.<br>
-You can always change the <code>uid</code> and <code>gid</code> used for the setup by passing different parameters to the script.<br>
-See <a href="#advanced-customization">Advanced Customization</a> for more details on the different parameters that are available.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yq e <span class="s1">&#39;.metadata.name = env(CLAIM_NAME)&#39;</span> -i <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span><span class="line"><span class="cl">yq e <span class="s1">&#39;.metadata.namespace = env(PVC_NAMESPACE)&#39;</span> -i <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span><span class="line"><span class="cl">yq e <span class="s1">&#39;.spec.template.spec.volumes[0].persistentVolumeClaim.claimName = env(CLAIM_NAME)&#39;</span> -i <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">kubectl apply -f <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
-</span></span></code></pre></div><h3 id="34-use-existing-efs-volume-as-workspace-or-data-volume-for-a-notebook">3.4 Use existing EFS volume as workspace or data volume for a Notebook</h3>
+</span></span></code></pre></div><h4 id="automated-setup-default-efs-owner">Automated setup default EFS owner</h4>
+<p>The automated setup sets the default notebook user (Jovyan) as owner by default.<br>
+You can always change the <code>uid</code> and <code>gid</code> used for the setup by passing different parameters to the script.<br>
+See <a href="#advanced-customization">Advanced Customization</a> for more details on the different parameters that are available.</p>
+<h3 id="34-use-existing-efs-volume-as-workspace-or-data-volume-for-a-notebook">3.4 Use existing EFS volume as workspace or data volume for a Notebook</h3>
 <p>Spin up a new Kubeflow notebook server and specify the name of the PVC to be used as the workspace volume or the data volume and specify your desired mount point. We&rsquo;ll assume you created a PVC with the name <code>efs-claim</code> via Kubeflow Volumes UI or via the manual setup step <a href="#4-option-2-static-provisioning">Static Provisioning</a>. For our example here, we are using the AWS Optimized Tensorflow 2.6 CPU image provided in the Notebook configuration options (<code>public.ecr.aws/c9e4w0g3/notebook-servers/jupyter-tensorflow</code>). Additionally, use the existing <code>efs-claim</code> volume as the workspace volume at the default mount point <code>/home/jovyan</code>. The server might take a few minutes to come up.</p>
 <p>In case the server does not start up in the expected time, do make sure to check:</p>
 <ol>
@@ -639,7 +639,7 @@ b. Delete the <code>efs-csi-controller-sa</code> service account and then re-run
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/068605edead0d78401ea1326ae0984c80f33cf4a">feat/267 Updated documentation about EFS permissions (068605e)</a>
+  Last modified June 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/b27908ab3b04edf6243cf199c38b3820b6180d11">feat/267 Updated documentation about EFS permissions (b27908a)</a>
 </div>
 
 </div>
