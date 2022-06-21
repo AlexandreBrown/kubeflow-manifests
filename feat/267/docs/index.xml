@@ -591,7 +591,7 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f &lt;span class=&#34;nv&#34;&gt;$GITHUB_STORAGE_DIR&lt;/span&gt;/notebook-sample/set-permission-job.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;automated-setup-default-efs-owner&#34;&gt;Automated setup default EFS owner&lt;/h4&gt;
-&lt;p&gt;The automated setup sets the default notebook user (Jovyan) as owner by default.&lt;br&gt;
+&lt;p&gt;The automated setup sets the default Kubeflow Notebook user (Jovyan) as owner by default.&lt;br&gt;
 You can always change the &lt;code&gt;uid&lt;/code&gt; and &lt;code&gt;gid&lt;/code&gt; used for the setup by passing different parameters to the script.&lt;br&gt;
 See &lt;a href=&#34;#advanced-customization&#34;&gt;Advanced Customization&lt;/a&gt; for more details on the different parameters that are available.&lt;/p&gt;
 &lt;h3 id=&#34;34-use-existing-efs-volume-as-workspace-or-data-volume-for-a-notebook&#34;&gt;3.4 Use existing EFS volume as workspace or data volume for a Notebook&lt;/h3&gt;
