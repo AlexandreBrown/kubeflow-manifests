@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/docs\/deployment\/add-ons\/storage\/efs\/guide\/",
-      "wordCount" : "2637",
+      "wordCount" : "2636",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -54,7 +54,7 @@
 <meta itemprop="name" content="EFS">
 <meta itemprop="description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS">
 <meta itemprop="dateModified" content="2022-06-21T16:46:45-04:00" />
-<meta itemprop="wordCount" content="2637">
+<meta itemprop="wordCount" content="2636">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="EFS"/>
 <meta name="twitter:description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS"/>
@@ -565,7 +565,7 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 <p>This step may not be necessary but you might need to specify some additional directory permissions on your worker node before you can use these as mount points. By default, new Amazon EFS file systems are owned by root:root, and only the root user (UID 0) has read-write-execute permissions. If your containers are not running as root, you must change the Amazon EFS file system permissions to allow other users to modify the file system. The set-permission-job.yaml is an example of how you could set these permissions to be able to use the efs as your workspace in your kubeflow notebook. Modify it accordingly if you run into similar permission issues with any other job pod.</p>
 <h4 id="note">Note</h4>
 <p>The automated setup sets the default notebook user (Jovyan) as owner by default.<br>
-You can always change the <code>uid</code> and <code>gid</code> used for the setup by passing a different parameter to the script.<br>
+You can always change the <code>uid</code> and <code>gid</code> used for the setup by passing different parameters to the script.<br>
 See <a href="#advanced-customization">Advanced Customization</a> for more details on the different parameters that are available.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">yq e <span class="s1">&#39;.metadata.name = env(CLAIM_NAME)&#39;</span> -i <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span><span class="line"><span class="cl">yq e <span class="s1">&#39;.metadata.namespace = env(PVC_NAMESPACE)&#39;</span> -i <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
@@ -639,7 +639,7 @@ b. Delete the <code>efs-csi-controller-sa</code> service account and then re-run
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified June 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/6fc2aee47da2b37be566d96edcf97aca45195693">feat/267 Updated documentation about EFS permissions (6fc2aee)</a>
+  Last modified June 21, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/068605edead0d78401ea1326ae0984c80f33cf4a">feat/267 Updated documentation about EFS permissions (068605e)</a>
 </div>
 
 </div>
