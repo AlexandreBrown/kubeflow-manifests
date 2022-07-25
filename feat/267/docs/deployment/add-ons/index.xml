@@ -409,7 +409,7 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;kubectl apply -f &lt;span class=&#34;nv&#34;&gt;$GITHUB_STORAGE_DIR&lt;/span&gt;/notebook-sample/set-permission-job.yaml
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id=&#34;dynamic-provisioning--default-owner&#34;&gt;Dynamic provisioning  default owner&lt;/h4&gt;
 &lt;p&gt;For dynamic provisioning (manual and automated setup), we already set the default Kubeflow Notebook user (Jovyan) as owner of the EFS file system by default.&lt;/p&gt;
-&lt;h5 id=&#34;chaning-the-defaults&#34;&gt;Chaning the defaults&lt;/h5&gt;
+&lt;h5 id=&#34;changing-the-default-values&#34;&gt;Changing the default values&lt;/h5&gt;
 &lt;p&gt;You can always change the &lt;code&gt;uid&lt;/code&gt; and &lt;code&gt;gid&lt;/code&gt; used for the setup.&lt;br&gt;
 For the manual setup, you need to edit the &lt;code&gt;uid&lt;/code&gt; and &lt;code&gt;gid&lt;/code&gt; in the storage class inside &lt;code&gt;dynamic-provisioning/sc.yaml&lt;/code&gt;. &lt;br&gt;
 For the automated setup, you can specify the &lt;code&gt;uid&lt;/code&gt; and &lt;code&gt;gid&lt;/code&gt; as arguments to the script, see &lt;a href=&#34;#advanced-customization&#34;&gt;Advanced Customization&lt;/a&gt; for more details on the different parameters that are available.&lt;/p&gt;

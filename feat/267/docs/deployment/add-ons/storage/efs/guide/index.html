@@ -28,7 +28,7 @@
       "datePublished": "0001-01-01 00:00:00 \u002b0000 UTC",
       "dateModified" : "0001-01-01 00:00:00 \u002b0000 UTC",
       "url" : "https:\/\/awslabs.github.io\/kubeflow-manifests\/docs\/deployment\/add-ons\/storage\/efs\/guide\/",
-      "wordCount" : "2681",
+      "wordCount" : "2682",
       "keywords" : [ "Kubeflow" ]
   }
   </script>
@@ -54,7 +54,7 @@
 <meta itemprop="name" content="EFS">
 <meta itemprop="description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS">
 <meta itemprop="dateModified" content="2022-07-25T18:36:07-04:00" />
-<meta itemprop="wordCount" content="2681">
+<meta itemprop="wordCount" content="2682">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="EFS"/>
 <meta name="twitter:description" content="Use Amazon EFS as persistent storage with Kubeflow on AWS"/>
@@ -570,7 +570,7 @@ The PVC needs to be in the namespace you will be accessing it from. Replace the 
 </span></span><span class="line"><span class="cl">kubectl apply -f <span class="nv">$GITHUB_STORAGE_DIR</span>/notebook-sample/set-permission-job.yaml
 </span></span></code></pre></div><h4 id="dynamic-provisioning--default-owner">Dynamic provisioning  default owner</h4>
 <p>For dynamic provisioning (manual and automated setup), we already set the default Kubeflow Notebook user (Jovyan) as owner of the EFS file system by default.</p>
-<h5 id="chaning-the-defaults">Chaning the defaults</h5>
+<h5 id="changing-the-default-values">Changing the default values</h5>
 <p>You can always change the <code>uid</code> and <code>gid</code> used for the setup.<br>
 For the manual setup, you need to edit the <code>uid</code> and <code>gid</code> in the storage class inside <code>dynamic-provisioning/sc.yaml</code>. <br>
 For the automated setup, you can specify the <code>uid</code> and <code>gid</code> as arguments to the script, see <a href="#advanced-customization">Advanced Customization</a> for more details on the different parameters that are available.</p>
@@ -641,7 +641,7 @@ b. Delete the <code>efs-csi-controller-sa</code> service account and then re-run
 	
 	
 	<div class="text-muted mt-5 pt-3 border-top">
-  Last modified July 25, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/540af9cd8f1bdb8983246fac23c238ad4242cd3a">feat/267 Updated documentation about EFS &amp; added default value for uid &amp; gid (540af9c)</a>
+  Last modified July 25, 2022: <a href="https://github.com/awslabs/kubeflow-manifests//commit/21c8eada7766be18ce4e732455b51f8e19d37547">feat/267 Updated documentation about EFS &amp; added default value for uid &amp; gid (21c8ead)</a>
 </div>
 
 </div>
